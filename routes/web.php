@@ -38,3 +38,7 @@ Route::get('pelanggan/{id}', 'PagesPelanggan@destroy');
 
 // mencari pelanggan
 Route::get('pelanggan/detail', 'PagesPelanggan@cari');
+
+// Transaksi
+Route::get('transaksi', 'PagesPelanggan@transaksi');
+

@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\DB;
 class PagesPelanggan extends Controller
 {
 
+    public function transaksi()
+    {
+        // echo "ini Halaman transaksi";
+        $transaksi = DB::table('transaksi')
+        ->join('pelanggan', "transaksi.id_pelanggan", "=" ,"pelanggan.id")
+        ->join('barang', "transaksi.id_barang", "=", "barang.id")
+        ->select('pelanggan.nama', 'barang.nama', 'barang.harga') // nama pelanggan tidak  muncul karena filed di nama
+        // dinamakan "nama" di kolom pelanggan
+        ->get();
+
+        return view('toko.transaksi')->with('transaksi', $transaksi);
+    }
+
 
     //metod untuk mencari pelanggan
     public function cari(Request $request)

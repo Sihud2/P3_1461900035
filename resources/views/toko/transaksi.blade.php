@@ -47,8 +47,8 @@
                   @foreach ($transaksi as $t) 
                 <tr> 
                   <th scope="row">{{ $loop->iteration }}</th>
+                  <td>{{ $t->nama }}</td> {{-- Nama pelanggan tidak muncul karena di field diberi 'nama' table pelanggan --}}
                   <td>{{ $t->nama }}</td>
-                  <td>{{ $t->barang }}</td>
                   <td>Rp. {{ number_format($t->harga) }}</td>
                 </tr>
                 @endforeach
